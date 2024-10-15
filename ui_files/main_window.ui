@@ -443,7 +443,7 @@ QPushButton:hover{
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_3">
                   <item>
-                   <widget class="QPushButton" name="pushButton">
+                   <widget class="QPushButton" name="calzados_pushButton">
                     <property name="minimumSize">
                      <size>
                       <width>0</width>

@@ -1,9 +1,9 @@
-import os
-import PySide6.QtGui
 from PySide6.QtWidgets import QWidget, QFileDialog, QVBoxLayout
 
 from views.main_window import MainWindow
 from views.general_custom_ui import GeneralCustomUi
+
+import pandas as pd
 
 class MainWindowForm(QWidget, MainWindow):
     
@@ -11,7 +11,9 @@ class MainWindowForm(QWidget, MainWindow):
         super().__init__()
         self.setupUi(self)
         self.ui = GeneralCustomUi(self)
-        self.init_ui() 
+        self.init_ui()
+
+        self.recuento_button.clicked.connect(self.procesar_archivos)
 
     def mousePressEvent(self, event):
         self.ui.mouse_press_event(event)
@@ -32,14 +34,44 @@ class MainWindowForm(QWidget, MainWindow):
         self.setLayout(layout)
         self.setWindowTitle("Ejemplo QFileDialog")
 
-    def abrir_medias_archivos(self):
+    def abrir_archivo(self, tipo_archivo):
         # Abrimos un QFileDialog cuando se presiona el botón
-        archivo, _ = QFileDialog.getOpenFileName(self, "Seleccionar archivo", "", "Todos los archivos (*)")
+        archivo, _ = QFileDialog.getOpenFileName(self, f"Seleccionar archivo de {tipo_archivo}", "", "Todos los archivos (*)")
+        
         if archivo:
-            print(f"Archivo seleccionado MEDIAS: {archivo}")
+            # Verificamos qué tipo de archivo es y guardamos en una variable
+            if tipo_archivo == "MEDIAS":
+                self.medias_archivo = archivo  # Guardamos el archivo seleccionado de medias
+            elif tipo_archivo == "CALZADOS":
+                self.calzados_archivo = archivo  # Guardamos el archivo seleccionado de calzados
+            
+            # Actualizamos el texto del label con ambos archivos seleccionados (si existen)
+            medias_text = f"MEDIAS: {self.medias_archivo}" if hasattr(self, 'medias_archivo') else "MEDIAS: No seleccionado"
+            calzados_text = f"CALZADOS: {self.calzados_archivo}" if hasattr(self, 'calzados_archivo') else "CALZADOS: No seleccionado"
+            
+            # Actualizamos el label con ambos archivos seleccionados
+            self.porcentajes_label.setText(f"{medias_text}\n{calzados_text}")
+            self.porcentajes_label.adjustSize()
 
+    # Para abrir archivos de medias
+    def abrir_medias_archivos(self):
+        self.abrir_archivo("MEDIAS")
+
+    # Para abrir archivos de calzados
     def abrir_calzados_archivos(self):
-        # Abrimos un QFileDialog cuando se presiona el botón
-        archivo, _ = QFileDialog.getOpenFileName(self, "Seleccionar archivo", "", "Todos los archivos (*)")
-        if archivo:
-            print(f"Archivo seleccionado CALZADOS : {archivo}")
+        self.abrir_archivo("CALZADOS")
+
+    def procesar_archivos(self):
+        if hasattr(self, 'medias_archivo'):
+            # Cargar el archivo de medias en un DataFrame
+            df_medias = pd.read_excel(self.medias_archivo)  # O pd.read_excel() si es un archivo Excel
+            print(df_medias)
+
+        if hasattr(self, 'calzados_archivo'):
+            # Cargar el archivo de calzados en un DataFrame
+            df_calzados = pd.read_excel(self.calzados_archivo)  # O pd.read_excel() si es un archivo Excel
+            df_calzados["Grupo de ventas"] = pd.to_numeric(df_calzados["Grupo de ventas"], errors='coerce')
+
+            filtro_ventas = df_calzados[df_calzados["Grupo de ventas"] == 13319]
+            print(df_calzados)
+
