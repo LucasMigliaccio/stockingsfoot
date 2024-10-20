@@ -65,13 +65,16 @@ class MainWindowForm(QWidget, MainWindow):
         if hasattr(self, 'medias_archivo'):
             # Cargar el archivo de medias en un DataFrame
             df_medias = pd.read_excel(self.medias_archivo)  # O pd.read_excel() si es un archivo Excel
-            print(df_medias)
+            fila_legajos_medias = df_medias.groupby("Grupo de ventas")['Cantidad'].sum()
+            print("MEDIAS \n", fila_legajos_medias)
 
         if hasattr(self, 'calzados_archivo'):
             # Cargar el archivo de calzados en un DataFrame
             df_calzados = pd.read_excel(self.calzados_archivo)  # O pd.read_excel() si es un archivo Excel
-            df_calzados["Grupo de ventas"] = pd.to_numeric(df_calzados["Grupo de ventas"], errors='coerce')
+            fila_legajos_calzados = df_calzados.groupby("Grupo de ventas")['Cantidad'].sum()
+            print("CALZADOS \n",fila_legajos_calzados)
 
-            filtro_ventas = df_calzados[df_calzados["Grupo de ventas"] == 13319]
-            print(df_calzados)
+
+    def ceo_analitica(self):
+        pass
 
