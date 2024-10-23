@@ -74,6 +74,19 @@ class MainWindowForm(QWidget, MainWindow):
             fila_legajos_calzados = df_calzados.groupby("Grupo de ventas")['Cantidad'].sum()
             print("CALZADOS \n",fila_legajos_calzados)
 
+        resultado = pd.merge(fila_legajos_calzados, fila_legajos_medias, on='Grupo de ventas', how='left')
+        resultado.columns = ['Calzados', 'Medias']
+
+        resultado['Porcentaje de Medias %'] = (resultado['Medias'] / resultado['Calzados']) * 100
+
+            # Convertir el DataFrame a texto
+        resultado_str = resultado.to_string()
+
+        # Mostrar el DataFrame en el QLabel
+        self.porcentajes_label.setText(resultado_str)
+        self.porcentajes_label.adjustSize()
+
+        print(resultado)
 
     def ceo_analitica(self):
         pass
