@@ -26,10 +26,6 @@ class MainWindowForm(QWidget, MainWindow):
         self.medias_pushButton.clicked.connect(self.abrir_medias_archivos)
         self.pushButton.clicked.connect(self.abrir_calzados_archivos)
 
-        # Añadimos el botón al layout
-        #layout.addWidget(self.medias_pushButton)
-
-
         # Configuramos la ventana principal
         self.setLayout(layout)
         self.setWindowTitle("Ejemplo QFileDialog")
@@ -62,31 +58,38 @@ class MainWindowForm(QWidget, MainWindow):
         self.abrir_archivo("CALZADOS")
 
     def procesar_archivos(self):
-        if hasattr(self, 'medias_archivo'):
-            # Cargar el archivo de medias en un DataFrame
-            df_medias = pd.read_excel(self.medias_archivo)  # O pd.read_excel() si es un archivo Excel
-            fila_legajos_medias = df_medias.groupby("Grupo de ventas")['Cantidad'].sum()
-            print("MEDIAS \n", fila_legajos_medias)
+        try:
+            if hasattr(self, 'medias_archivo'):
+                # Cargar el archivo de medias en un DataFrame
+                df_medias = pd.read_excel(self.medias_archivo)  # O pd.read_excel() si es un archivo Excel
+                fila_legajos_medias = df_medias.groupby("Grupo de ventas")['Cantidad'].sum()
+                print("MEDIAS \n", fila_legajos_medias)
 
-        if hasattr(self, 'calzados_archivo'):
-            # Cargar el archivo de calzados en un DataFrame
-            df_calzados = pd.read_excel(self.calzados_archivo)  # O pd.read_excel() si es un archivo Excel
-            fila_legajos_calzados = df_calzados.groupby("Grupo de ventas")['Cantidad'].sum()
-            print("CALZADOS \n",fila_legajos_calzados)
+            if hasattr(self, 'calzados_archivo'):
+                # Cargar el archivo de calzados en un DataFrame
+                df_calzados = pd.read_excel(self.calzados_archivo)  # O pd.read_excel() si es un archivo Excel
+                fila_legajos_calzados = df_calzados.groupby("Grupo de ventas")['Cantidad'].sum()
+                print("CALZADOS \n",fila_legajos_calzados)
 
-        resultado = pd.merge(fila_legajos_calzados, fila_legajos_medias, on='Grupo de ventas', how='left')
-        resultado.columns = ['Calzados', 'Medias']
+            resultado = pd.merge(fila_legajos_calzados, fila_legajos_medias, on='Grupo de ventas', how='left')
+            resultado.columns = ['Calzados', 'Medias']
+            resultado.index.name = ""
+            resultado = resultado.dropna(subset=['Calzados', 'Medias']) #Filtro valores nulos
+            resultado['%'] = (resultado['Medias'] / resultado['Calzados']) * 100
 
-        resultado['Porcentaje de Medias %'] = (resultado['Medias'] / resultado['Calzados']) * 100
+                # Convertir el DataFrame a texto
+            resultado_str = resultado.to_string()
 
-            # Convertir el DataFrame a texto
-        resultado_str = resultado.to_string()
+            # Mostrar el DataFrame en el QLabel
+            self.porcentajes_label.setText(resultado_str)
+            self.porcentajes_label.adjustSize()
 
-        # Mostrar el DataFrame en el QLabel
-        self.porcentajes_label.setText(resultado_str)
-        self.porcentajes_label.adjustSize()
+            print(resultado)
 
-        print(resultado)
+        except Exception as e:
+            print(f"Error al procesar los archivos: {e}")
+            self.porcentajes_label.setText("Error al procesar los archivos.")
+            self.porcentajes_label.adjustSize()
 
     def ceo_analitica(self):
         pass
