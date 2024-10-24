@@ -56,28 +56,38 @@ class MainWindowForm(QWidget, MainWindow):
     # Para abrir archivos de calzados
     def abrir_calzados_archivos(self):
         self.abrir_archivo("CALZADOS")
-
+        
     def procesar_archivos(self):
         try:
             if hasattr(self, 'medias_archivo'):
                 # Cargar el archivo de medias en un DataFrame
-                df_medias = pd.read_excel(self.medias_archivo)  # O pd.read_excel() si es un archivo Excel
-                fila_legajos_medias = df_medias.groupby("Grupo de ventas")['Cantidad'].sum()
-                print("MEDIAS \n", fila_legajos_medias)
+                df_medias = pd.read_excel(self.medias_archivo)
+
+                # Filtrar solo las filas donde 'Categoría' contiene la palabra "med"
+                df_medias_filtrado = df_medias[df_medias['Categoría'].str.contains('med', case=False, na=False)]
+
+                # Agrupar por 'Grupo de ventas' y sumar la columna 'Cantidad'
+                fila_legajos_medias = df_medias_filtrado.groupby("Grupo de ventas")['Cantidad'].sum()
+                print("MEDIAS FILTRADAS \n", fila_legajos_medias)
 
             if hasattr(self, 'calzados_archivo'):
                 # Cargar el archivo de calzados en un DataFrame
                 df_calzados = pd.read_excel(self.calzados_archivo)  # O pd.read_excel() si es un archivo Excel
                 fila_legajos_calzados = df_calzados.groupby("Grupo de ventas")['Cantidad'].sum()
-                print("CALZADOS \n",fila_legajos_calzados)
+                print("CALZADOS \n", fila_legajos_calzados)
 
+            # Realizar el merge entre calzados y medias
             resultado = pd.merge(fila_legajos_calzados, fila_legajos_medias, on='Grupo de ventas', how='left')
             resultado.columns = ['Calzados', 'Medias']
             resultado.index.name = ""
-            resultado = resultado.dropna(subset=['Calzados', 'Medias']) #Filtro valores nulos
+
+            # Filtro para evitar valores nulos
+            resultado = resultado.dropna(subset=['Calzados', 'Medias'])
+
+            # Calcular el porcentaje de medias respecto a calzados
             resultado['%'] = (resultado['Medias'] / resultado['Calzados']) * 100
 
-                # Convertir el DataFrame a texto
+            # Convertir el DataFrame a texto para mostrarlo en el QLabel
             resultado_str = resultado.to_string()
 
             # Mostrar el DataFrame en el QLabel
