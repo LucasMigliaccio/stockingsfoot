@@ -1,38 +1,33 @@
-import sys
-from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QFileDialog
-from PySide6.QtCore import QDir
+import sqlite3
+import os
+import pandas as pd
 
-class FileSelector(QWidget):
-    def __init__(self):
-        super().__init__()
-        
-        # Configurar la interfaz de usuario
-        self.setWindowTitle('Seleccionar archivo Excel')
-        self.setGeometry(300, 300, 400, 200)
+# Ruta de la base de datos
+DB_PATH = os.path.join(os.path.dirname(__file__), 'app_data.db')
 
-        # Crear botón para abrir el diálogo
-        self.layout = QVBoxLayout()
-        self.button = QPushButton('Seleccionar archivo .xlsx', self)
-        self.button.clicked.connect(self.open_file_dialog)
-        
-        # Añadir botón al layout
-        self.layout.addWidget(self.button)
-        self.setLayout(self.layout)
+def get_connection():
+    db_path = os.path.join("database", "ventas.sqlite3")
+    conn = sqlite3.connect(db_path)
+    return conn
+    
+conn = get_connection()
 
-    def open_file_dialog(self):
-        # Crear un QFileDialog para seleccionar archivos con la extensión .xlsx
-        file_dialog = QFileDialog(self)
-        file_dialog.setWindowTitle("Seleccionar archivo Excel")
-        file_dialog.setDirectory(QDir.homePath() + "/Desktop")  # Abre directamente en el escritorio
-        file_dialog.setNameFilter("Archivos de Excel (*.xlsx)")
-        
-        if file_dialog.exec():
-            # Obtener el nombre del archivo seleccionado
-            selected_file = file_dialog.selectedFiles()[0]
-            print(f"Archivo seleccionado: {selected_file}")
+# Paso 1: Obtener las categorías únicas
+query_categorias = 'SELECT DISTINCT "Categoría" FROM ventas_calzado'
+categorias = pd.read_sql(query_categorias, conn)["Categoría"].tolist()
 
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    selector = FileSelector()
-    selector.show()
-    sys.exit(app.exec())
+# Paso 2: Construir la consulta SQL dinámica
+select_clause = '"Grupo de ventas", ' + ', '.join(
+    [f'SUM(CASE WHEN "Categoría" = "{categoria}" THEN "Cantidad" ELSE 0 END) AS "{categoria}"'
+     for categoria in categorias]
+)
+query = f'SELECT {select_clause} FROM ventas_calzado GROUP BY "Grupo de ventas";'
+
+# Paso 3: Ejecutar la consulta y obtener los resultados
+resultado = pd.read_sql(query, conn)
+
+# Mostrar el resultado
+print(resultado)
+
+# Cerrar la conexión
+conn.close()

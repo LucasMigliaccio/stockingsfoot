@@ -39,7 +39,8 @@ class GeneralCustomUi():
 
     def mouse_press_event(self, event):
         #posicion de la ventana arrastrada
-        self.drag_pos = event.globalPos()
+        if event.button() == Qt.LeftButton:
+            self.drag_pos = event.globalPos()
 
 #arrastrar ventanas
     def move_window(self, event):
