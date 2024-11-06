@@ -4,9 +4,10 @@ from views.general_custom_ui import GeneralCustomUi
 import pandas as pd
 
 from database.database import get_connection, create_ventas_calzado_table, create_ventas_medias_table
-from database.queries_calzado import obtener_datos_calzados, obtener_calzados_filtrados
+from database.queries_calzado import obtener_datos_calzados, obtener_calzados_filtrados, ventas_x_categoria_individual
 from database.queries_medias import obtener_datos_medias, obtener_medias_filtradas
 
+from controllers.views_categoria_x_venta import ViewCategoriasForm
 
 class MainWindowForm(QWidget, MainWindow):
     
@@ -21,6 +22,7 @@ class MainWindowForm(QWidget, MainWindow):
         create_ventas_medias_table()
 
         self.recuento_button.clicked.connect(self.procesar_archivos)
+        self.ceo_button.clicked.connect(self.open_ceo_analitica)
         
     def mousePressEvent(self, event):
         self.ui.mouse_press_event(event)
@@ -108,5 +110,6 @@ class MainWindowForm(QWidget, MainWindow):
     def abrir_calzados_archivos(self):
         self.abrir_archivo("CALZADOS")
 
-    def ceo_analitica(self):
-        pass
+    def open_ceo_analitica(self):
+        window= ViewCategoriasForm(self)
+        window.show()
