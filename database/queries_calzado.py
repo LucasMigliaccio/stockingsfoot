@@ -52,13 +52,16 @@ def ventas_x_categoria_grupal():
     return df_calzados_grupal
 
 
-def producto_mas_vendido():
+def marca_mas_vendida():
     conn = get_connection()
     query = """SELECT 
-            SUBSTR("Nombre del producto", INSTR("Nombre del producto", ' ') + 1) AS "Marca",
+            SUBSTR("Nombre del producto", INSTR("Nombre del producto", ' ') + 1, 
+            INSTR(SUBSTR("Nombre del producto", INSTR("Nombre del producto", ' ') + 1), ' ') - 1) AS "Marca",
             SUM("Cantidad") AS "Total Cantidad"
             FROM ventas_calzado
-            GROUP BY "Marca";
+            GROUP BY "Marca"
+            ORDER BY "Total Cantidad" ASC;
+
             """
     df_genero_grupal = pd.read_sql_query(query, conn)
     conn.close()
