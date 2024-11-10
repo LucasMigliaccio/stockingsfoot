@@ -8,6 +8,7 @@ from database.queries_calzado import obtener_datos_calzados, obtener_calzados_fi
 from database.queries_medias import obtener_datos_medias, obtener_medias_filtradas
 
 from controllers.views_categoria_x_venta import ViewCategoriasForm
+from controllers.views_genero_x_venta import ViewGeneroForm
 
 class MainWindowForm(QWidget, MainWindow):
     
@@ -23,6 +24,7 @@ class MainWindowForm(QWidget, MainWindow):
 
         self.recuento_button.clicked.connect(self.procesar_archivos)
         self.ceo_button.clicked.connect(self.open_ceo_analitica)
+        self.operador_button.clicked.connect(self.open_genero_analitica)
         
     def mousePressEvent(self, event):
         self.ui.mouse_press_event(event)
@@ -112,4 +114,8 @@ class MainWindowForm(QWidget, MainWindow):
 
     def open_ceo_analitica(self):
         window= ViewCategoriasForm(self)
+        window.show()
+
+    def open_genero_analitica(self):
+        window= ViewGeneroForm(self)
         window.show()

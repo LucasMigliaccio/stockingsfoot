@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'ventas_x_categoria_individual.ui'
+## Form generated from reading UI file 'ventas_x_genero_grupal.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -15,11 +15,11 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QHeaderView,
-    QLabel, QSizePolicy, QTableView, QToolButton,
-    QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
+    QSizePolicy, QTabWidget, QToolButton, QVBoxLayout,
+    QWidget)
 
-class ViewProductos(object):
+class ViewGenero(object):
     def setupUi(self, ViewEmpleado):
         if not ViewEmpleado.objectName():
             ViewEmpleado.setObjectName(u"ViewEmpleado")
@@ -67,9 +67,9 @@ class ViewProductos(object):
         self.label_tittle.setObjectName(u"label_tittle")
         font = QFont()
         font.setFamilies([u"Tw Cen MT"])
-        font.setPointSize(14)
-        font.setBold(True)
-        font.setItalic(True)
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setItalic(False)
         self.label_tittle.setFont(font)
         self.label_tittle.setStyleSheet(u"color: rgb(255, 255, 255) ;")
 
@@ -124,12 +124,18 @@ class ViewProductos(object):
         self.frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_3 = QVBoxLayout(self.frame)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.productos_table = QTableView(self.frame)
-        self.productos_table.setObjectName(u"productos_table")
-        self.productos_table.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);")
+        self.tabWidget = QTabWidget(self.frame)
+        self.tabWidget.setObjectName(u"tabWidget")
+        self.tabWidget.setStyleSheet(u"background-color:  white;\n"
+"color: black;")
+        self.tab = QWidget()
+        self.tab.setObjectName(u"tab")
+        self.tabWidget.addTab(self.tab, "")
+        self.tab_2 = QWidget()
+        self.tab_2.setObjectName(u"tab_2")
+        self.tabWidget.addTab(self.tab_2, "")
 
-        self.verticalLayout_3.addWidget(self.productos_table)
+        self.verticalLayout_3.addWidget(self.tabWidget)
 
         self.frame_2 = QFrame(self.frame)
         self.frame_2.setObjectName(u"frame_2")
@@ -169,16 +175,21 @@ class ViewProductos(object):
 
         self.retranslateUi(ViewEmpleado)
 
+        self.tabWidget.setCurrentIndex(0)
+
+
         QMetaObject.connectSlotsByName(ViewEmpleado)
     # setupUi
 
     def retranslateUi(self, ViewEmpleado):
         ViewEmpleado.setWindowTitle(QCoreApplication.translate("ViewEmpleado", u"Form", None))
-        self.label_tittle.setText(QCoreApplication.translate("ViewEmpleado", u"Ventas por Categor\u00eda Individual", None))
+        self.label_tittle.setText(QCoreApplication.translate("ViewEmpleado", u"Ventas por Clase", None))
         self.minimize_button.setText(QCoreApplication.translate("ViewEmpleado", u"...", None))
         self.restore_button.setText(QCoreApplication.translate("ViewEmpleado", u"...", None))
         self.maximize_button.setText(QCoreApplication.translate("ViewEmpleado", u"...", None))
         self.close_button.setText(QCoreApplication.translate("ViewEmpleado", u"...", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("ViewEmpleado", u"Tab 1", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("ViewEmpleado", u"Tab 2", None))
         self.total_label.setText("")
     # retranslateUi
 

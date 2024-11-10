@@ -6,7 +6,7 @@ from PySide6.QtCore import Qt
 from views.general_custom_ui import GeneralCustomUi
 from views.ventas_x_categoria_individual import ViewProductos
 
-from database.queries_calzado import ventas_x_categoria_individual
+from database.queries_calzado import ventas_x_categoria_individual, ventas_x_categoria_grupal
 
 from models.producto import PandasModel
 
@@ -28,6 +28,13 @@ class ViewCategoriasForm(QWidget, ViewProductos):
 
         self.productos_model = PandasModel(df)
         self.productos_table.setModel(self.productos_model)
+        self.total_calzados()
 
     def mousePressEvent(self, event):
         self.ui.mouse_press_event(event)
+
+    def total_calzados(self):
+        grupal= ventas_x_categoria_grupal()
+        grupal_str = grupal.to_string()
+        self.total_label.setText(grupal_str)
+        self.total_label.adjustSize()

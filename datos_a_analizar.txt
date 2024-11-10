@@ -1,9 +1,9 @@
-- Marca favorita x vendedor y total de unidades por Marca
+- Marca favorita x vendedor y total de unidades por Marca X
 
-- total de calzados x marca
+- total de calzados x marca X
 
 - Importe total de calzados vendidos
 
 - Importe total de medias vendidas
 
-.- filtro hombre, dama, unisex, niño, niña
+.- filtro hombre, dama, unisex, niño, niña X

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>782</width>
+    <width>853</width>
     <height>712</height>
    </rect>
   </property>
@@ -282,17 +282,11 @@ QPushButton:hover{
                <enum>QFrame::Raised</enum>
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_2">
-               <property name="spacing">
-                <number>6</number>
-               </property>
-               <property name="topMargin">
-                <number>9</number>
-               </property>
                <item>
-                <widget class="QPushButton" name="operador_button">
+                <widget class="QPushButton" name="genero_button">
                  <property name="minimumSize">
                   <size>
-                   <width>220</width>
+                   <width>170</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -315,15 +309,15 @@ QPushButton:hover{
 </string>
                  </property>
                  <property name="text">
-                  <string>Operador</string>
+                  <string>Generos + Vendidas</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="ceo_button">
+                <widget class="QPushButton" name="categorias_vendidas_button">
                  <property name="minimumSize">
                   <size>
-                   <width>220</width>
+                   <width>170</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -346,22 +340,71 @@ QPushButton:hover{
 </string>
                  </property>
                  <property name="text">
-                  <string>CEO</string>
+                  <string>Categorías + Vendidas</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <spacer name="horizontalSpacer">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
+                <widget class="QPushButton" name="marca_button">
+                 <property name="minimumSize">
                   <size>
-                   <width>110</width>
-                   <height>20</height>
+                   <width>170</width>
+                   <height>0</height>
                   </size>
                  </property>
-                </spacer>
+                 <property name="font">
+                  <font>
+                   <family>Tw Cen MT Condensed Extra Bold</family>
+                   <pointsize>10</pointsize>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QPushButton{
+	background-color: rgb(60, 76, 116 );
+	color: white;
+}
+
+QPushButton:hover{
+	
+	background-color: rgb(39, 49, 73 );
+}
+</string>
+                 </property>
+                 <property name="text">
+                  <string>Marcas + Vendidas</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="importes_button">
+                 <property name="minimumSize">
+                  <size>
+                   <width>170</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Tw Cen MT Condensed Extra Bold</family>
+                   <pointsize>10</pointsize>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QPushButton{
+	background-color: rgb(148, 52, 68  );
+	color: white;
+}
+
+QPushButton:hover{
+	
+	background-color: rgb(97, 35, 45);
+}
+</string>
+                 </property>
+                 <property name="text">
+                  <string>Importes</string>
+                 </property>
+                </widget>
                </item>
                <item>
                 <widget class="QPushButton" name="recuento_button">

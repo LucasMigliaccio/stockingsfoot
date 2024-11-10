@@ -41,3 +41,39 @@ def ventas_x_categoria_individual():
     resultado = pd.read_sql(query, conn)
     conn.close()
     return resultado
+
+def ventas_x_categoria_grupal():
+    conn = get_connection()
+    query = """SELECT "Categoría", SUM("Cantidad") AS "Total Cantidad"
+                FROM ventas_calzado
+                GROUP BY "Categoría";"""
+    df_calzados_grupal = pd.read_sql_query(query, conn)
+    conn.close()
+    return df_calzados_grupal
+
+
+def ventas_x_genero_grupal():
+    conn = get_connection()
+    query = """SELECT 
+            SUBSTR("Nombre del producto", INSTR("Nombre del producto", ' ') + 1) AS "Marca",
+            SUM("Cantidad") AS "Total Cantidad"
+            FROM ventas_calzado
+            GROUP BY "Marca";
+            """
+    df_genero_grupal = pd.read_sql_query(query, conn)
+    conn.close()
+    return df_genero_grupal
+
+
+def calzados_mas_vendidos():
+    conn = get_connection()
+    query ="""SELECT 
+            SUBSTR("Nombre del producto", INSTR("Nombre del producto", ' ') + 1) AS "Calzados", ("Código de artículo"),
+            SUM("Cantidad") AS "Total Cantidad"
+            FROM ventas_calzado
+            GROUP BY "Calzados"
+            ORDER BY "Total Cantidad" ASC
+            LIMIT 10;"""
+    df_calzados_mas_vendidos = pd.read_sql_query(query, conn)
+    conn.close()
+    return df_calzados_mas_vendidos

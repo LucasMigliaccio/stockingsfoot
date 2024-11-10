@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'ventas_x_categoria_individual.ui'
+## Form generated from reading UI file 'calzados_marcas_favoritas.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -19,11 +19,11 @@ from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QHeaderView,
     QLabel, QSizePolicy, QTableView, QToolButton,
     QVBoxLayout, QWidget)
 
-class ViewProductos(object):
+class ViewCalzadosMarcas(object):
     def setupUi(self, ViewEmpleado):
         if not ViewEmpleado.objectName():
             ViewEmpleado.setObjectName(u"ViewEmpleado")
-        ViewEmpleado.resize(917, 499)
+        ViewEmpleado.resize(989, 745)
         self.verticalLayout = QVBoxLayout(ViewEmpleado)
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName(u"verticalLayout")
@@ -67,9 +67,9 @@ class ViewProductos(object):
         self.label_tittle.setObjectName(u"label_tittle")
         font = QFont()
         font.setFamilies([u"Tw Cen MT"])
-        font.setPointSize(14)
-        font.setBold(True)
-        font.setItalic(True)
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setItalic(False)
         self.label_tittle.setFont(font)
         self.label_tittle.setStyleSheet(u"color: rgb(255, 255, 255) ;")
 
@@ -116,43 +116,50 @@ class ViewProductos(object):
         self.frame_action.setStyleSheet(u"background-color: rgb(0, 0, 0);")
         self.frame_action.setFrameShape(QFrame.StyledPanel)
         self.frame_action.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_5 = QVBoxLayout(self.frame_action)
-        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.verticalLayout_3 = QVBoxLayout(self.frame_action)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.frame = QFrame(self.frame_action)
         self.frame.setObjectName(u"frame")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_3 = QVBoxLayout(self.frame)
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.productos_table = QTableView(self.frame)
-        self.productos_table.setObjectName(u"productos_table")
-        self.productos_table.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);")
+        self.horizontalLayout = QHBoxLayout(self.frame)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.calzados_table = QTableView(self.frame)
+        self.calzados_table.setObjectName(u"calzados_table")
+        self.calzados_table.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
+"border-radius: 10px;")
 
-        self.verticalLayout_3.addWidget(self.productos_table)
+        self.horizontalLayout.addWidget(self.calzados_table)
 
-        self.frame_2 = QFrame(self.frame)
+        self.marcas_table = QTableView(self.frame)
+        self.marcas_table.setObjectName(u"marcas_table")
+        self.marcas_table.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
+"border-radius: 10px;")
+
+        self.horizontalLayout.addWidget(self.marcas_table)
+
+
+        self.verticalLayout_3.addWidget(self.frame)
+
+        self.frame_2 = QFrame(self.frame_action)
         self.frame_2.setObjectName(u"frame_2")
         self.frame_2.setFrameShape(QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout = QHBoxLayout(self.frame_2)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.total_label = QLabel(self.frame_2)
-        self.total_label.setObjectName(u"total_label")
-        font1 = QFont()
-        font1.setPointSize(9)
-        font1.setBold(True)
-        self.total_label.setFont(font1)
-        self.total_label.setStyleSheet(u"color: rgb(255, 255, 255) ;")
-        self.total_label.setAlignment(Qt.AlignCenter)
+        self.horizontalLayout_2 = QHBoxLayout(self.frame_2)
+        self.horizontalLayout_2.setSpacing(0)
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.horizontalLayout_2.setContentsMargins(0, 0, 11, 0)
+        self.label = QLabel(self.frame_2)
+        self.label.setObjectName(u"label")
+        self.label.setStyleSheet(u"color:white;")
+        self.label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.horizontalLayout.addWidget(self.total_label)
+        self.horizontalLayout_2.addWidget(self.label)
 
 
         self.verticalLayout_3.addWidget(self.frame_2)
-
-
-        self.verticalLayout_5.addWidget(self.frame)
 
 
         self.verticalLayout_7.addWidget(self.frame_action)
@@ -174,11 +181,11 @@ class ViewProductos(object):
 
     def retranslateUi(self, ViewEmpleado):
         ViewEmpleado.setWindowTitle(QCoreApplication.translate("ViewEmpleado", u"Form", None))
-        self.label_tittle.setText(QCoreApplication.translate("ViewEmpleado", u"Ventas por Categor\u00eda Individual", None))
+        self.label_tittle.setText(QCoreApplication.translate("ViewEmpleado", u"Calzados Favoritos / Marcas Favoritas", None))
         self.minimize_button.setText(QCoreApplication.translate("ViewEmpleado", u"...", None))
         self.restore_button.setText(QCoreApplication.translate("ViewEmpleado", u"...", None))
         self.maximize_button.setText(QCoreApplication.translate("ViewEmpleado", u"...", None))
         self.close_button.setText(QCoreApplication.translate("ViewEmpleado", u"...", None))
-        self.total_label.setText("")
+        self.label.setText(QCoreApplication.translate("ViewEmpleado", u"lucasmigliaccio10@gmail.com", None))
     # retranslateUi
 
