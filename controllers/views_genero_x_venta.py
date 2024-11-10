@@ -7,10 +7,10 @@ import matplotlib.pyplot as plt
 
 from views.general_custom_ui import GeneralCustomUi
 from views.ventas_x_genero_grupal import ViewGenero
-from database.queries_calzado import ventas_x_genero_grupal
+from database.queries_calzado import genero_mas_vendido
 
 # Llamada a la consulta para obtener el DataFrame
-data = ventas_x_genero_grupal()
+data = genero_mas_vendido()
 data["Total Cantidad"] = data["Total Cantidad"].abs()  # Convertir valores negativos en positivos si los hay
 
 class ViewGeneroForm(QWidget, ViewGenero):

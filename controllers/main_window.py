@@ -23,8 +23,8 @@ class MainWindowForm(QWidget, MainWindow):
         create_ventas_medias_table()
 
         self.recuento_button.clicked.connect(self.procesar_archivos)
-        self.ceo_button.clicked.connect(self.open_ceo_analitica)
-        self.operador_button.clicked.connect(self.open_genero_analitica)
+        self.categorias_vendidas_button.clicked.connect(self.open_categorias_analitica)
+        self.genero_button.clicked.connect(self.open_genero_analitica)
         
     def mousePressEvent(self, event):
         self.ui.mouse_press_event(event)
@@ -32,7 +32,7 @@ class MainWindowForm(QWidget, MainWindow):
     def init_ui(self):
         layout = QVBoxLayout()
         self.medias_pushButton.clicked.connect(self.abrir_medias_archivos)
-        self.pushButton.clicked.connect(self.abrir_calzados_archivos)
+        self.calzados_pushButton.clicked.connect(self.abrir_calzados_archivos)
         self.setLayout(layout)
         self.setWindowTitle("Ejemplo QFileDialog")
 
@@ -112,7 +112,7 @@ class MainWindowForm(QWidget, MainWindow):
     def abrir_calzados_archivos(self):
         self.abrir_archivo("CALZADOS")
 
-    def open_ceo_analitica(self):
+    def open_categorias_analitica(self):
         window= ViewCategoriasForm(self)
         window.show()
 

@@ -23,7 +23,7 @@ class MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(782, 712)
+        MainWindow.resize(853, 712)
         self.verticalLayout = QVBoxLayout(MainWindow)
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName(u"verticalLayout")
@@ -136,17 +136,15 @@ class MainWindow(object):
         self.frame_superior.setFrameShape(QFrame.StyledPanel)
         self.frame_superior.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_2 = QHBoxLayout(self.frame_superior)
-        self.horizontalLayout_2.setSpacing(6)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.horizontalLayout_2.setContentsMargins(-1, 9, -1, -1)
-        self.operador_button = QPushButton(self.frame_superior)
-        self.operador_button.setObjectName(u"operador_button")
-        self.operador_button.setMinimumSize(QSize(220, 0))
+        self.genero_button = QPushButton(self.frame_superior)
+        self.genero_button.setObjectName(u"genero_button")
+        self.genero_button.setMinimumSize(QSize(170, 0))
         font1 = QFont()
         font1.setFamilies([u"Tw Cen MT Condensed Extra Bold"])
         font1.setPointSize(10)
-        self.operador_button.setFont(font1)
-        self.operador_button.setStyleSheet(u"QPushButton{\n"
+        self.genero_button.setFont(font1)
+        self.genero_button.setStyleSheet(u"QPushButton{\n"
 "	background-color: rgb(60, 76, 116 );\n"
 "	color: white;\n"
 "}\n"
@@ -157,13 +155,13 @@ class MainWindow(object):
 "}\n"
 "")
 
-        self.horizontalLayout_2.addWidget(self.operador_button)
+        self.horizontalLayout_2.addWidget(self.genero_button)
 
-        self.ceo_button = QPushButton(self.frame_superior)
-        self.ceo_button.setObjectName(u"ceo_button")
-        self.ceo_button.setMinimumSize(QSize(220, 0))
-        self.ceo_button.setFont(font1)
-        self.ceo_button.setStyleSheet(u"QPushButton{\n"
+        self.categorias_vendidas_button = QPushButton(self.frame_superior)
+        self.categorias_vendidas_button.setObjectName(u"categorias_vendidas_button")
+        self.categorias_vendidas_button.setMinimumSize(QSize(170, 0))
+        self.categorias_vendidas_button.setFont(font1)
+        self.categorias_vendidas_button.setStyleSheet(u"QPushButton{\n"
 "	background-color: rgb(148, 52, 68  );\n"
 "	color: white;\n"
 "}\n"
@@ -174,11 +172,41 @@ class MainWindow(object):
 "}\n"
 "")
 
-        self.horizontalLayout_2.addWidget(self.ceo_button)
+        self.horizontalLayout_2.addWidget(self.categorias_vendidas_button)
 
-        self.horizontalSpacer = QSpacerItem(110, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.marca_button = QPushButton(self.frame_superior)
+        self.marca_button.setObjectName(u"marca_button")
+        self.marca_button.setMinimumSize(QSize(170, 0))
+        self.marca_button.setFont(font1)
+        self.marca_button.setStyleSheet(u"QPushButton{\n"
+"	background-color: rgb(60, 76, 116 );\n"
+"	color: white;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"	\n"
+"	background-color: rgb(39, 49, 73 );\n"
+"}\n"
+"")
 
-        self.horizontalLayout_2.addItem(self.horizontalSpacer)
+        self.horizontalLayout_2.addWidget(self.marca_button)
+
+        self.importes_button = QPushButton(self.frame_superior)
+        self.importes_button.setObjectName(u"importes_button")
+        self.importes_button.setMinimumSize(QSize(170, 0))
+        self.importes_button.setFont(font1)
+        self.importes_button.setStyleSheet(u"QPushButton{\n"
+"	background-color: rgb(148, 52, 68  );\n"
+"	color: white;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"	\n"
+"	background-color: rgb(97, 35, 45);\n"
+"}\n"
+"")
+
+        self.horizontalLayout_2.addWidget(self.importes_button)
 
         self.recuento_button = QPushButton(self.frame_superior)
         self.recuento_button.setObjectName(u"recuento_button")
@@ -219,11 +247,11 @@ class MainWindow(object):
         self.frame_calzados.setFrameShadow(QFrame.Raised)
         self.verticalLayout_3 = QVBoxLayout(self.frame_calzados)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.pushButton = QPushButton(self.frame_calzados)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setMinimumSize(QSize(0, 205))
+        self.calzados_pushButton = QPushButton(self.frame_calzados)
+        self.calzados_pushButton.setObjectName(u"calzados_pushButton")
+        self.calzados_pushButton.setMinimumSize(QSize(0, 205))
 
-        self.verticalLayout_3.addWidget(self.pushButton)
+        self.verticalLayout_3.addWidget(self.calzados_pushButton)
 
 
         self.horizontalLayout.addWidget(self.frame_calzados)
@@ -316,10 +344,12 @@ class MainWindow(object):
         self.restore_button.setText(QCoreApplication.translate("MainWindow", u"...", None))
         self.maximize_button.setText(QCoreApplication.translate("MainWindow", u"...", None))
         self.close_button.setText(QCoreApplication.translate("MainWindow", u"...", None))
-        self.operador_button.setText(QCoreApplication.translate("MainWindow", u"Operador", None))
-        self.ceo_button.setText(QCoreApplication.translate("MainWindow", u"CEO", None))
+        self.genero_button.setText(QCoreApplication.translate("MainWindow", u"Generos + Vendidas", None))
+        self.categorias_vendidas_button.setText(QCoreApplication.translate("MainWindow", u"Categor\u00edas + Vendidas", None))
+        self.marca_button.setText(QCoreApplication.translate("MainWindow", u"Marcas + Vendidas", None))
+        self.importes_button.setText(QCoreApplication.translate("MainWindow", u"Importes", None))
         self.recuento_button.setText(QCoreApplication.translate("MainWindow", u"RECUENTO", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
+        self.calzados_pushButton.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
         self.medias_pushButton.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
         self.label_logo.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.porcentajes_label.setText("")
