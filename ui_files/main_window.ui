@@ -376,7 +376,7 @@ QPushButton:hover{
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="importes_button">
+                <widget class="QPushButton" name="marcafav_button">
                  <property name="minimumSize">
                   <size>
                    <width>170</width>
@@ -402,7 +402,7 @@ QPushButton:hover{
 </string>
                  </property>
                  <property name="text">
-                  <string>Importes</string>
+                  <string>Marca Fav. por Vendedor</string>
                  </property>
                 </widget>
                </item>
@@ -493,8 +493,13 @@ QPushButton:hover{
                       <height>205</height>
                      </size>
                     </property>
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton {
+image: url(:/newPrefix/assets/icons/calzado.png);
+}</string>
+                    </property>
                     <property name="text">
-                     <string>PushButton</string>
+                     <string/>
                     </property>
                    </widget>
                   </item>
@@ -521,8 +526,13 @@ QPushButton:hover{
                       <height>205</height>
                      </size>
                     </property>
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton {
+image: url(:/newPrefix/assets/icons/calcetines.png);
+}</string>
+                    </property>
                     <property name="text">
-                     <string>PushButton</string>
+                     <string/>
                     </property>
                    </widget>
                   </item>
@@ -560,11 +570,13 @@ QPushButton:hover{
                    <widget class="QLabel" name="label_logo">
                     <property name="styleSheet">
                      <string notr="true">QLabel{
-image:url(:/imagess/strip.png);
-}</string>
+image: url(:/newPrefix/assets/icons/Captura de pantalla 2024-11-10 180102.png);
+background-color: rgb(148, 52, 68  );
+}
+</string>
                     </property>
                     <property name="text">
-                     <string>TextLabel</string>
+                     <string/>
                     </property>
                    </widget>
                   </item>
@@ -651,6 +663,8 @@ image:url(:/imagess/strip.png);
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
  <connections/>
 </ui>

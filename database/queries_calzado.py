@@ -93,3 +93,18 @@ def genero_mas_vendido():
     df_generos_mas_vendidos = pd.read_sql_query(query, conn)
     conn.close()
     return df_generos_mas_vendidos
+
+
+def ventas_x_marca_individual():
+    conn = get_connection()
+    query ="""SELECT 
+            "Grupo de ventas",
+            SUBSTR("Nombre del producto", INSTR("Nombre del producto", ' ') + 1, 
+           INSTR(SUBSTR("Nombre del producto", INSTR("Nombre del producto", ' ') + 1), ' ') - 1) AS "Marca",
+            SUM("Cantidad") AS "Total Cantidad"
+            FROM ventas_calzado
+            GROUP BY "Grupo de ventas", "Marca"
+            ORDER BY "Grupo de ventas", "Total Cantidad" ASC;"""
+    df_ventas_x_marca_individual = pd.read_sql_query(query, conn)
+    conn.close()
+    return df_ventas_x_marca_individual
