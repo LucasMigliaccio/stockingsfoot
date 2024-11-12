@@ -571,7 +571,7 @@ image: url(:/newPrefix/assets/icons/calcetines.png);
                     <property name="styleSheet">
                      <string notr="true">QLabel{
 image: url(:/newPrefix/assets/icons/Captura de pantalla 2024-11-10 180102.png);
-background-color: rgb(148, 52, 68  );
+	background-color: rgb(195, 0, 0);
 }
 </string>
                     </property>

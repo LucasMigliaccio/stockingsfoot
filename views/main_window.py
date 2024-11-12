@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'main_window.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.2.4
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -18,6 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QPushButton, QSizePolicy, QSpacerItem, QToolButton,
     QVBoxLayout, QWidget)
+from ui_files import icons_rc
 
 class MainWindow(object):
     def setupUi(self, MainWindow):
@@ -85,25 +86,25 @@ class MainWindow(object):
         self.minimize_button.setObjectName(u"minimize_button")
         self.minimize_button.setGeometry(QRect(0, 0, 22, 22))
         icon = QIcon()
-        icon.addFile(u"./assets/icons/minimize-window.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon.addFile(u"../assets/icons/minimize-window.png", QSize(), QIcon.Normal, QIcon.Off)
         self.minimize_button.setIcon(icon)
         self.restore_button = QToolButton(self.butttons_holder_frame)
         self.restore_button.setObjectName(u"restore_button")
         self.restore_button.setGeometry(QRect(30, 0, 22, 22))
         icon1 = QIcon()
-        icon1.addFile(u"./assets/icons/restore-window.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon1.addFile(u"../assets/icons/restore-window.png", QSize(), QIcon.Normal, QIcon.Off)
         self.restore_button.setIcon(icon1)
         self.maximize_button = QToolButton(self.butttons_holder_frame)
         self.maximize_button.setObjectName(u"maximize_button")
         self.maximize_button.setGeometry(QRect(30, 0, 22, 22))
         icon2 = QIcon()
-        icon2.addFile(u"./assets/icons/maximize-window.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon2.addFile(u"../assets/icons/maximize-window.png", QSize(), QIcon.Normal, QIcon.Off)
         self.maximize_button.setIcon(icon2)
         self.close_button = QToolButton(self.butttons_holder_frame)
         self.close_button.setObjectName(u"close_button")
         self.close_button.setGeometry(QRect(60, 0, 22, 22))
         icon3 = QIcon()
-        icon3.addFile(u"./assets/icons/close-window.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon3.addFile(u"../assets/icons/close-window.png", QSize(), QIcon.Normal, QIcon.Off)
         self.close_button.setIcon(icon3)
 
         self.horizontalLayout_6.addWidget(self.butttons_holder_frame)
@@ -191,11 +192,11 @@ class MainWindow(object):
 
         self.horizontalLayout_2.addWidget(self.marca_button)
 
-        self.importes_button = QPushButton(self.frame_superior)
-        self.importes_button.setObjectName(u"importes_button")
-        self.importes_button.setMinimumSize(QSize(170, 0))
-        self.importes_button.setFont(font1)
-        self.importes_button.setStyleSheet(u"QPushButton{\n"
+        self.marcafav_button = QPushButton(self.frame_superior)
+        self.marcafav_button.setObjectName(u"marcafav_button")
+        self.marcafav_button.setMinimumSize(QSize(170, 0))
+        self.marcafav_button.setFont(font1)
+        self.marcafav_button.setStyleSheet(u"QPushButton{\n"
 "	background-color: rgb(148, 52, 68  );\n"
 "	color: white;\n"
 "}\n"
@@ -206,7 +207,7 @@ class MainWindow(object):
 "}\n"
 "")
 
-        self.horizontalLayout_2.addWidget(self.importes_button)
+        self.horizontalLayout_2.addWidget(self.marcafav_button)
 
         self.recuento_button = QPushButton(self.frame_superior)
         self.recuento_button.setObjectName(u"recuento_button")
@@ -250,6 +251,9 @@ class MainWindow(object):
         self.calzados_pushButton = QPushButton(self.frame_calzados)
         self.calzados_pushButton.setObjectName(u"calzados_pushButton")
         self.calzados_pushButton.setMinimumSize(QSize(0, 205))
+        self.calzados_pushButton.setStyleSheet(u"QPushButton {\n"
+"image: url(:/newPrefix/assets/icons/calzado.png);\n"
+"}")
 
         self.verticalLayout_3.addWidget(self.calzados_pushButton)
 
@@ -266,6 +270,9 @@ class MainWindow(object):
         self.medias_pushButton = QPushButton(self.frame_medias)
         self.medias_pushButton.setObjectName(u"medias_pushButton")
         self.medias_pushButton.setMinimumSize(QSize(0, 205))
+        self.medias_pushButton.setStyleSheet(u"QPushButton {\n"
+"image: url(:/newPrefix/assets/icons/calcetines.png);\n"
+"}")
 
         self.verticalLayout_4.addWidget(self.medias_pushButton)
 
@@ -284,8 +291,10 @@ class MainWindow(object):
         self.label_logo = QLabel(self.frame_vacio)
         self.label_logo.setObjectName(u"label_logo")
         self.label_logo.setStyleSheet(u"QLabel{\n"
-"image:url(:/imagess/strip.png);\n"
-"}")
+"image: url(:/newPrefix/assets/icons/Captura de pantalla 2024-11-10 180102.png);\n"
+"	background-color: rgb(195, 0, 0);\n"
+"}\n"
+"")
 
         self.verticalLayout_9.addWidget(self.label_logo)
 
@@ -302,7 +311,7 @@ class MainWindow(object):
         self.frame_action.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_3 = QHBoxLayout(self.frame_action)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.horizontalSpacer_2 = QSpacerItem(72, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer_2 = QSpacerItem(72, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_3.addItem(self.horizontalSpacer_2)
 
@@ -315,7 +324,7 @@ class MainWindow(object):
 
         self.horizontalLayout_3.addWidget(self.porcentajes_label)
 
-        self.horizontalSpacer_3 = QSpacerItem(72, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.horizontalSpacer_3 = QSpacerItem(72, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_3.addItem(self.horizontalSpacer_3)
 
@@ -347,11 +356,11 @@ class MainWindow(object):
         self.genero_button.setText(QCoreApplication.translate("MainWindow", u"Generos + Vendidas", None))
         self.categorias_vendidas_button.setText(QCoreApplication.translate("MainWindow", u"Categor\u00edas + Vendidas", None))
         self.marca_button.setText(QCoreApplication.translate("MainWindow", u"Marcas + Vendidas", None))
-        self.importes_button.setText(QCoreApplication.translate("MainWindow", u"Importes", None))
+        self.marcafav_button.setText(QCoreApplication.translate("MainWindow", u"Marca Fav. por Vendedor", None))
         self.recuento_button.setText(QCoreApplication.translate("MainWindow", u"RECUENTO", None))
-        self.calzados_pushButton.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
-        self.medias_pushButton.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
-        self.label_logo.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.calzados_pushButton.setText("")
+        self.medias_pushButton.setText("")
+        self.label_logo.setText("")
         self.porcentajes_label.setText("")
     # retranslateUi
 

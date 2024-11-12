@@ -1,13 +1,12 @@
 import sqlite3
 import os
-
-# Ruta de la base de datos
-DB_PATH = os.path.join(os.path.dirname(__file__), 'app_data.db')
-
 def get_connection():
-    db_path = os.path.join("database", "ventas.sqlite3")
+    db_path = os.path.join(os.path.dirname(__file__), "ventas.sqlite3")
+    if not os.path.exists(db_path):
+        raise FileNotFoundError(f"No se encontró el archivo de base de datos en {db_path}")
     conn = sqlite3.connect(db_path)
     return conn
+
 
 def create_ventas_calzado_table():
     conn = get_connection()
