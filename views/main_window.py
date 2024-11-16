@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'main_window.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.2.4
+## Created by: Qt User Interface Compiler version 6.7.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -86,25 +86,25 @@ class MainWindow(object):
         self.minimize_button.setObjectName(u"minimize_button")
         self.minimize_button.setGeometry(QRect(0, 0, 22, 22))
         icon = QIcon()
-        icon.addFile(u"../assets/icons/minimize-window.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u"./assets/icons/minimize-window.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.minimize_button.setIcon(icon)
         self.restore_button = QToolButton(self.butttons_holder_frame)
         self.restore_button.setObjectName(u"restore_button")
         self.restore_button.setGeometry(QRect(30, 0, 22, 22))
         icon1 = QIcon()
-        icon1.addFile(u"../assets/icons/restore-window.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile(u"./assets/icons/restore-window.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.restore_button.setIcon(icon1)
         self.maximize_button = QToolButton(self.butttons_holder_frame)
         self.maximize_button.setObjectName(u"maximize_button")
         self.maximize_button.setGeometry(QRect(30, 0, 22, 22))
         icon2 = QIcon()
-        icon2.addFile(u"../assets/icons/maximize-window.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon2.addFile(u"./assets/icons/maximize-window.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.maximize_button.setIcon(icon2)
         self.close_button = QToolButton(self.butttons_holder_frame)
         self.close_button.setObjectName(u"close_button")
         self.close_button.setGeometry(QRect(60, 0, 22, 22))
         icon3 = QIcon()
-        icon3.addFile(u"../assets/icons/close-window.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon3.addFile(u"./assets/icons/close-window.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.close_button.setIcon(icon3)
 
         self.horizontalLayout_6.addWidget(self.butttons_holder_frame)
@@ -238,9 +238,7 @@ class MainWindow(object):
         self.frame_inferior.setFrameShape(QFrame.StyledPanel)
         self.frame_inferior.setFrameShadow(QFrame.Raised)
         self.horizontalLayout = QHBoxLayout(self.frame_inferior)
-        self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.frame_calzados = QFrame(self.frame_inferior)
         self.frame_calzados.setObjectName(u"frame_calzados")
         self.frame_calzados.setStyleSheet(u"background-color: rgb(60, 76, 116);")
@@ -259,25 +257,6 @@ class MainWindow(object):
 
 
         self.horizontalLayout.addWidget(self.frame_calzados)
-
-        self.frame_medias = QFrame(self.frame_inferior)
-        self.frame_medias.setObjectName(u"frame_medias")
-        self.frame_medias.setStyleSheet(u"background-color: rgb(228, 228, 228);")
-        self.frame_medias.setFrameShape(QFrame.StyledPanel)
-        self.frame_medias.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_4 = QVBoxLayout(self.frame_medias)
-        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.medias_pushButton = QPushButton(self.frame_medias)
-        self.medias_pushButton.setObjectName(u"medias_pushButton")
-        self.medias_pushButton.setMinimumSize(QSize(0, 205))
-        self.medias_pushButton.setStyleSheet(u"QPushButton {\n"
-"image: url(:/newPrefix/assets/icons/calcetines.png);\n"
-"}")
-
-        self.verticalLayout_4.addWidget(self.medias_pushButton)
-
-
-        self.horizontalLayout.addWidget(self.frame_medias)
 
         self.frame_vacio = QFrame(self.frame_inferior)
         self.frame_vacio.setObjectName(u"frame_vacio")
@@ -301,6 +280,25 @@ class MainWindow(object):
 
         self.horizontalLayout.addWidget(self.frame_vacio)
 
+        self.frame_medias = QFrame(self.frame_inferior)
+        self.frame_medias.setObjectName(u"frame_medias")
+        self.frame_medias.setStyleSheet(u"background-color: rgb(228, 228, 228);")
+        self.frame_medias.setFrameShape(QFrame.StyledPanel)
+        self.frame_medias.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_4 = QVBoxLayout(self.frame_medias)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.medias_pushButton = QPushButton(self.frame_medias)
+        self.medias_pushButton.setObjectName(u"medias_pushButton")
+        self.medias_pushButton.setMinimumSize(QSize(0, 205))
+        self.medias_pushButton.setStyleSheet(u"QPushButton {\n"
+"image: url(:/newPrefix/assets/icons/calcetines.png);\n"
+"}")
+
+        self.verticalLayout_4.addWidget(self.medias_pushButton)
+
+
+        self.horizontalLayout.addWidget(self.frame_medias)
+
 
         self.verticalLayout_7.addWidget(self.frame_inferior)
 
@@ -311,7 +309,7 @@ class MainWindow(object):
         self.frame_action.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_3 = QHBoxLayout(self.frame_action)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.horizontalSpacer_2 = QSpacerItem(72, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_2 = QSpacerItem(72, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_3.addItem(self.horizontalSpacer_2)
 
@@ -324,12 +322,20 @@ class MainWindow(object):
 
         self.horizontalLayout_3.addWidget(self.porcentajes_label)
 
-        self.horizontalSpacer_3 = QSpacerItem(72, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_3 = QSpacerItem(72, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_3.addItem(self.horizontalSpacer_3)
 
 
         self.verticalLayout_7.addWidget(self.frame_action)
+
+        self.label = QLabel(self.content_frame)
+        self.label.setObjectName(u"label")
+        self.label.setMaximumSize(QSize(16777215, 10))
+        self.label.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.verticalLayout_7.addWidget(self.label)
 
 
         self.verticalLayout_2.addWidget(self.content_frame)
@@ -359,8 +365,9 @@ class MainWindow(object):
         self.marcafav_button.setText(QCoreApplication.translate("MainWindow", u"Marca Fav. por Vendedor", None))
         self.recuento_button.setText(QCoreApplication.translate("MainWindow", u"RECUENTO", None))
         self.calzados_pushButton.setText("")
-        self.medias_pushButton.setText("")
         self.label_logo.setText("")
+        self.medias_pushButton.setText("")
         self.porcentajes_label.setText("")
+        self.label.setText(QCoreApplication.translate("MainWindow", u"lContacto: lucasmigliaccio10@gmail.com", None))
     # retranslateUi
 

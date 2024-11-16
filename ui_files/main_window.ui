@@ -458,21 +458,6 @@ QPushButton:hover{
                <enum>QFrame::Raised</enum>
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout">
-               <property name="spacing">
-                <number>0</number>
-               </property>
-               <property name="leftMargin">
-                <number>0</number>
-               </property>
-               <property name="topMargin">
-                <number>0</number>
-               </property>
-               <property name="rightMargin">
-                <number>0</number>
-               </property>
-               <property name="bottomMargin">
-                <number>0</number>
-               </property>
                <item>
                 <widget class="QFrame" name="frame_calzados">
                  <property name="styleSheet">
@@ -496,39 +481,6 @@ QPushButton:hover{
                     <property name="styleSheet">
                      <string notr="true">QPushButton {
 image: url(:/newPrefix/assets/icons/calzado.png);
-}</string>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-               <item>
-                <widget class="QFrame" name="frame_medias">
-                 <property name="styleSheet">
-                  <string notr="true">background-color: rgb(228, 228, 228);</string>
-                 </property>
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_4">
-                  <item>
-                   <widget class="QPushButton" name="medias_pushButton">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>205</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QPushButton {
-image: url(:/newPrefix/assets/icons/calcetines.png);
 }</string>
                     </property>
                     <property name="text">
@@ -574,6 +526,39 @@ image: url(:/newPrefix/assets/icons/Captura de pantalla 2024-11-10 180102.png);
 	background-color: rgb(195, 0, 0);
 }
 </string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QFrame" name="frame_medias">
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgb(228, 228, 228);</string>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_4">
+                  <item>
+                   <widget class="QPushButton" name="medias_pushButton">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>205</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton {
+image: url(:/newPrefix/assets/icons/calcetines.png);
+}</string>
                     </property>
                     <property name="text">
                      <string/>
@@ -650,6 +635,25 @@ image: url(:/newPrefix/assets/icons/Captura de pantalla 2024-11-10 180102.png);
                 </spacer>
                </item>
               </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>10</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);</string>
+              </property>
+              <property name="text">
+               <string>lContacto: lucasmigliaccio10@gmail.com</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
              </widget>
             </item>
            </layout>

@@ -10,6 +10,7 @@ from database.queries_medias import obtener_datos_medias, obtener_medias_filtrad
 from controllers.views_categoria_x_venta import ViewCategoriasForm
 from controllers.views_genero_x_venta import ViewGeneroForm
 from controllers.views_calzados_marca_mas_vendidos import ViewMarcaoForm
+from controllers.views_marca_x_venta_individual import ViewMarcaIndividualForm
 
 class MainWindowForm(QWidget, MainWindow):
     
@@ -27,6 +28,7 @@ class MainWindowForm(QWidget, MainWindow):
         self.categorias_vendidas_button.clicked.connect(self.open_categorias_analitica)
         self.genero_button.clicked.connect(self.open_genero_analitica)
         self.marca_button.clicked.connect(self.open_marcacalzado_analitica)
+        self.marcafav_button.clicked.connect(self.open_marcacalzado_individual_analitica)
         
     def mousePressEvent(self, event):
         self.ui.mouse_press_event(event)
@@ -121,8 +123,11 @@ class MainWindowForm(QWidget, MainWindow):
     def open_genero_analitica(self):
         window= ViewGeneroForm(self)
         window.show()
-
     
     def open_marcacalzado_analitica(self):
         window= ViewMarcaoForm(self)
+        window.show()
+        
+    def open_marcacalzado_individual_analitica(self):
+        window= ViewMarcaIndividualForm(self)
         window.show()

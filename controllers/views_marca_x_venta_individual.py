@@ -11,7 +11,7 @@ from models.producto import PandasModel
 data_marca = ventas_x_marca_individual()
 
 df_marca = pd.DataFrame(data_marca)
-df_marca.iloc[:, 1:] = df_marca.iloc[:, 1:].abs()
+df_marca.iloc[:, 2:] = df_marca.iloc[:, 2:].abs()
 
 class ViewMarcaIndividualForm(QWidget, ViewMarcaIndividual):
     def __init__(self, parent=None):
