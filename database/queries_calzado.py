@@ -84,16 +84,21 @@ def calzados_mas_vendidos():
 
 def genero_mas_vendido():
     conn = get_connection()
-    query ="""SELECT 
-            SUBSTR("Categoría", INSTR("Categoría", ' ') + 1) AS "Género",
-            SUM("Cantidad") AS "Total Cantidad"
+    try:
+        query = """
+            SELECT
+                SUBSTR("Categoría", INSTR("Categoría", ' ') + 1) AS "Género",
+                SUM("Cantidad") AS "Total Cantidad"
             FROM ventas_calzado
             GROUP BY "Género";
-            """
-    df_generos_mas_vendidos = pd.read_sql_query(query, conn)
-    conn.close()
-    return df_generos_mas_vendidos
-
+        """
+        df_generos_mas_vendidos = pd.read_sql_query(query, conn)
+        return df_generos_mas_vendidos
+    except Exception as e:
+        print(f"Error al ejecutar la consulta: {e}")
+        return pd.DataFrame()  # Retorna un DataFrame vacío en caso de error
+    finally:
+        conn.close()
 
 def ventas_x_marca_individual():
     conn = get_connection()

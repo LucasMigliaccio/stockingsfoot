@@ -1,15 +1,19 @@
 import sys
 from datetime import datetime
 from PySide6.QtWidgets import QApplication, QMessageBox
-
+from database.database import get_connection, create_ventas_calzado_table, create_ventas_medias_table
 from controllers.main_window import MainWindowForm
+
+
+create_ventas_calzado_table()
+create_ventas_medias_table()
 
 if __name__ == "__main__":
     # Verificar la fecha actual
     fecha_actual = datetime.now()
 
     # Condición: Si es 15 de diciembre
-    if fecha_actual.month == 11 and fecha_actual.day == 15:
+    if fecha_actual.month == 12 and fecha_actual.day == 15:
         # Crear una aplicación temporal para mostrar el mensaje
         app = QApplication()
         mensaje = QMessageBox()
