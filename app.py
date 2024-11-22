@@ -9,10 +9,9 @@ create_ventas_calzado_table()
 create_ventas_medias_table()
 
 if __name__ == "__main__":
-    # Verificar la fecha actual
+
     fecha_actual = datetime.now()
 
-    # Condición: Si es 15 de diciembre
     if fecha_actual.month == 12 and fecha_actual.day == 15:
         # Crear una aplicación temporal para mostrar el mensaje
         app = QApplication()

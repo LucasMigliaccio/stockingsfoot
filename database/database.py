@@ -1,6 +1,20 @@
 import sqlite3
 import os
 
+# Número de tienda
+# Fecha
+# Hora de la transacción
+# Categoría	
+# Código de artículo
+# Nombre del producto
+# Tamaño
+# Almacén	
+# Cantidad	
+# Grupo de ventas
+# Importe antes de impuestos	
+# Número de recibo
+# Id. de operador 
+
 def get_connection():
     db_path = os.path.join(os.path.dirname(__file__), "ventas.sqlite3")
     if not os.path.exists(db_path):
@@ -9,7 +23,7 @@ def get_connection():
     return conn
 
 def check_table_exists(table_name):
-    conn = sqlite3.connect("database.db")
+    conn = get_connection()
     cursor = conn.cursor()
     query = f"SELECT name FROM sqlite_master WHERE type='table' AND name='{table_name}'"
     cursor.execute(query)
@@ -18,12 +32,12 @@ def check_table_exists(table_name):
     return exists
 
 def create_tables_if_not_exists():
-    conn = sqlite3.connect("database.db")
+    conn = get_connection()
     cursor = conn.cursor()
     if not check_table_exists("ventas_calzado"):
         cursor.execute("""
         CREATE TABLE IF NOT EXISTS ventas_calzado (
-        "Numero de tienda" INTEGER,
+        "Número de tienda" INTEGER,
         "Fecha" TEXT,
         "Hora de la transacción" TEXT,
         "Categoría" TEXT,
@@ -31,7 +45,7 @@ def create_tables_if_not_exists():
         "Nombre del producto" TEXT,
         "Tamaño" TEXT,
         "Almacén" INTEGER,
-        "Cantidad" REAL,
+        "Cantidad" INTEGER,
         "Grupo de ventas" INTEGER,
         "Importe antes de impuestos" REAL,
         "Número de recibo" TEXT,
@@ -42,7 +56,7 @@ def create_tables_if_not_exists():
     if not check_table_exists("ventas_medias"):
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS ventas_medias (
-        "Numero de tienda" INTEGER,
+        "Número de tienda" INTEGER,
         "Fecha" TEXT,
         "Hora de la transacción" TEXT,
         "Categoría" TEXT,
@@ -50,7 +64,7 @@ def create_tables_if_not_exists():
         "Nombre del producto" TEXT,
         "Tamaño" TEXT,
         "Almacén" INTEGER,
-        "Cantidad" REAL,
+        "Cantidad" INTEGER,
         "Grupo de ventas" INTEGER,
         "Importe antes de impuestos" REAL,
         "Número de recibo" TEXT,
@@ -67,7 +81,7 @@ def create_ventas_calzado_table():
     cursor = conn.cursor()
     query = query = '''
     CREATE TABLE IF NOT EXISTS ventas_calzado (
-        "Numero de tienda" INTEGER,
+        "Número de tienda" INTEGER,
         "Fecha" TEXT,
         "Hora de la transacción" TEXT,
         "Categoría" TEXT,
@@ -93,7 +107,7 @@ def create_ventas_medias_table():
     cursor = conn.cursor()
     query = '''
     CREATE TABLE IF NOT EXISTS ventas_medias (
-        "Numero de tienda" INTEGER,
+        "Número de tienda" INTEGER,
         "Fecha" TEXT,
         "Hora de la transacción" TEXT,
         "Categoría" TEXT,
@@ -101,7 +115,7 @@ def create_ventas_medias_table():
         "Nombre del producto" TEXT,
         "Tamaño" TEXT,
         "Almacén" INTEGER,
-        "Cantidad" REAL,
+        "Cantidad" INTEGER,
         "Grupo de ventas" INTEGER,
         "Importe antes de impuestos" REAL,
         "Número de recibo" TEXT,
@@ -113,3 +127,22 @@ def create_ventas_medias_table():
     conn.commit()
     conn.close()
     print("Tabla ventas_medias creada o ya existente.")
+
+
+def clean_database_calzados():
+    conn = get_connection()
+    cursor = conn.cursor()
+    query="""DELETE FROM ventas_calzado;"""
+    cursor.execute(query)
+    conn.commit()
+    conn.close()
+    print("TABLA CALZADOS LIMPIA")
+
+def clean_database_medias():
+    conn = get_connection()
+    cursor = conn.cursor()
+    query="""DELETE FROM ventas_medias;"""
+    cursor.execute(query)
+    conn.commit()
+    conn.close()
+    print("TABLA CALZADOS LIMPIA")

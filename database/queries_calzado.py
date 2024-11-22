@@ -3,12 +3,12 @@ import pandas as pd
 from .database import get_connection
 
 
-def obtener_datos_calzados():
-    conn = get_connection()
-    query = "SELECT * FROM ventas_calzado;"
-    df_calzados = pd.read_sql_query(query, conn)
-    conn.close()
-    return df_calzados
+#def obtener_datos_calzados():
+    #conn = get_connection()
+    #query = "SELECT * FROM ventas_calzado;"
+    #df_calzados = pd.read_sql_query(query, conn)
+    #conn.close()
+    #return df_calzados
 
 
 def obtener_calzados_filtrados():
@@ -17,6 +17,18 @@ def obtener_calzados_filtrados():
     df_calzados_filtrados = pd.read_sql_query(query, conn)
     conn.close()
     return df_calzados_filtrados
+    
+def obtener_datos_calzados():
+    conn = get_connection()
+    query = """SELECT "Grupo de ventas", SUM(Cantidad) AS TotalCantidad FROM ventas_calzado GROUP BY "Grupo de ventas";"""
+    try:
+        return pd.read_sql(query, conn)
+    except Exception as e:
+        print(f"Error al obtener datos de calzados: {e}")
+        return pd.DataFrame()
+    finally:
+        conn.close()
+
 
 
 def total_calzados_filtrados_genero():
