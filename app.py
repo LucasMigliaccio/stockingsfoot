@@ -12,7 +12,7 @@ if __name__ == "__main__":
 
     fecha_actual = datetime.now()
 
-    if fecha_actual.month == 12 and fecha_actual.day == 15:
+    if fecha_actual.month == 22 and fecha_actual.day == 15:
         # Crear una aplicación temporal para mostrar el mensaje
         app = QApplication()
         mensaje = QMessageBox()
@@ -21,8 +21,7 @@ if __name__ == "__main__":
         mensaje.setText("Su prueba gratuita ha concluido, Contacto: lucasmigliaccio10@gmail.com ")
         mensaje.exec()
         sys.exit()  # Salir del programa
-
-    # Si no es 15 de diciembre, iniciar la aplicación normalmente
+        
     app = QApplication()
     window = MainWindowForm()
     window.show()

@@ -1,5 +1,18 @@
 <RCC>
   <qresource prefix="newPrefix">
+    <file>../assets/icons/cancel.png</file>
+    <file>../assets/icons/close-window.png</file>
+    <file>../assets/icons/delete.png</file>
+    <file>../assets/icons/edit.png</file>
+    <file>../assets/icons/efectivo.png</file>
+    <file>../assets/icons/maximize-window.png</file>
+    <file>../assets/icons/mercadopago.png</file>
+    <file>../assets/icons/minimize-window.png</file>
+    <file>../assets/icons/open-file.png</file>
+    <file>../assets/icons/plus.png</file>
+    <file>../assets/icons/restore-window.png</file>
+    <file>../assets/icons/search.png</file>
+    <file>../assets/icons/view.png</file>
     <file>../assets/icons/Captura de pantalla 2024-11-10 180102.png</file>
     <file>../assets/icons/calcetines.png</file>
     <file>../assets/icons/calzado.png</file>

@@ -187,7 +187,7 @@
                   </property>
                   <property name="icon">
                    <iconset>
-                    <normaloff>../../../Desktop/Softbarber/softbarberr/AngelCuk/assets/icons/minimize-window.png</normaloff>../../../Desktop/Softbarber/softbarberr/AngelCuk/assets/icons/minimize-window.png</iconset>
+                    <normaloff>../assets/icons/minimize-window.png</normaloff>../assets/icons/minimize-window.png</iconset>
                   </property>
                  </widget>
                  <widget class="QToolButton" name="restore_button">
@@ -204,7 +204,7 @@
                   </property>
                   <property name="icon">
                    <iconset>
-                    <normaloff>../../../Desktop/Softbarber/softbarberr/AngelCuk/assets/icons/restore-window.png</normaloff>../../../Desktop/Softbarber/softbarberr/AngelCuk/assets/icons/restore-window.png</iconset>
+                    <normaloff>../assets/icons/restore-window.png</normaloff>../assets/icons/restore-window.png</iconset>
                   </property>
                  </widget>
                  <widget class="QToolButton" name="maximize_button">
@@ -221,7 +221,7 @@
                   </property>
                   <property name="icon">
                    <iconset>
-                    <normaloff>../../../Desktop/Softbarber/softbarberr/AngelCuk/assets/icons/maximize-window.png</normaloff>../../../Desktop/Softbarber/softbarberr/AngelCuk/assets/icons/maximize-window.png</iconset>
+                    <normaloff>../assets/icons/maximize-window.png</normaloff>../assets/icons/maximize-window.png</iconset>
                   </property>
                  </widget>
                  <widget class="QToolButton" name="close_button">
@@ -238,7 +238,7 @@
                   </property>
                   <property name="icon">
                    <iconset>
-                    <normaloff>../../../Desktop/Softbarber/softbarberr/AngelCuk/assets/icons/close-window.png</normaloff>../../../Desktop/Softbarber/softbarberr/AngelCuk/assets/icons/close-window.png</iconset>
+                    <normaloff>../assets/icons/close-window.png</normaloff>../assets/icons/close-window.png</iconset>
                   </property>
                  </widget>
                 </widget>
