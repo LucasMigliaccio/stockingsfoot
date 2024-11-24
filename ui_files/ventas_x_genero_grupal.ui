@@ -186,8 +186,8 @@
                    <string>...</string>
                   </property>
                   <property name="icon">
-                   <iconset>
-                    <normaloff>../assets/icons/minimize-window.png</normaloff>../assets/icons/minimize-window.png</iconset>
+                   <iconset resource="icons.qrc">
+                    <normaloff>:/newPrefix/assets/icons/minimize-window.png</normaloff>:/newPrefix/assets/icons/minimize-window.png</iconset>
                   </property>
                  </widget>
                  <widget class="QToolButton" name="restore_button">
@@ -203,8 +203,8 @@
                    <string>...</string>
                   </property>
                   <property name="icon">
-                   <iconset>
-                    <normaloff>../assets/icons/restore-window.png</normaloff>../assets/icons/restore-window.png</iconset>
+                   <iconset resource="icons.qrc">
+                    <normaloff>:/newPrefix/assets/icons/restore-window.png</normaloff>:/newPrefix/assets/icons/restore-window.png</iconset>
                   </property>
                  </widget>
                  <widget class="QToolButton" name="maximize_button">
@@ -220,8 +220,8 @@
                    <string>...</string>
                   </property>
                   <property name="icon">
-                   <iconset>
-                    <normaloff>../assets/icons/maximize-window.png</normaloff>../assets/icons/maximize-window.png</iconset>
+                   <iconset resource="icons.qrc">
+                    <normaloff>:/newPrefix/assets/icons/maximize-window.png</normaloff>:/newPrefix/assets/icons/maximize-window.png</iconset>
                   </property>
                  </widget>
                  <widget class="QToolButton" name="close_button">
@@ -337,6 +337,8 @@ color: black;</string>
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
  <connections/>
 </ui>
